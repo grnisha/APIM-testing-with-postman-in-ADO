@@ -25,3 +25,5 @@ step 4 - Remove all sensitive information from the postman collection , for exam
 
 step 5 - Set up pipeline.
 
+ToDo -> Remove token creation from pre-req step to devops. 
+ToDo -> Create github action sample
