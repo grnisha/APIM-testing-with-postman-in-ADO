@@ -1,4 +1,4 @@
-# APIM tesing - configure postman / newman API tests in Azure DevOps 
+# APIM testing - configure postman / newman API tests in Azure DevOps 
 
 Step 1 - Export API From APIM to Postman
 
