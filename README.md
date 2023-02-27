@@ -26,4 +26,5 @@ Tests configured in this example is checking if api response status is 200.
 **Step 5** - Set up pipeline.
 
 **ToDo** -> Remove token creation from pre-req step to devops. 
+
 **ToDo** -> Create github action sample
