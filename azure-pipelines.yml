@@ -1,0 +1,46 @@
+name: RunDemoConfAPITests-$(Date:yyyyMMdd).$(Rev:r)
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+- group: DemoConfAPIGroup
+
+steps:
+- task: Npm@1
+  displayName: 'npm install newman'
+  inputs:
+    command: custom
+    verbose: false
+    customCommand: 'install newman -g'
+
+- task: Npm@1
+  displayName: 'npm install newman-reporter-junitfull'
+  inputs:
+    command: custom
+    verbose: false
+    customCommand: 'install newman-reporter-junitfull -g'
+
+- task: qetza.replacetokens.replacetokens-task.replacetokens@5
+  displayName: 'Replace tokens'
+  inputs:
+    targetFiles: '$(Build.Repository.LocalPath)/postmancollection/DemoConfApi.json'
+    tokenPattern: custom
+    tokenPrefix: '##'
+    tokenSuffix: '##'
+
+- script: |
+    cat $(Build.Repository.LocalPath)/postmancollection/DemoConfApi.json
+- script: |
+   newman run $(Build.Repository.LocalPath)/postmancollection/DemoConfApi.json -r cli,junitfull --reporter-junitfull-export JUnitReport.xml
+   
+  displayName: 'Postman API Get Collection'
+  continueOnError: true
+
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results'
+  inputs:
+    testResultsFiles: JUnitReport.xml

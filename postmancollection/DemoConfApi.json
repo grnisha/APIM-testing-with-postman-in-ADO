@@ -1,0 +1,1105 @@
+{
+    "collection": {
+        "info": {
+            "_postman_id": "617ea6b0-e339-4416-9545-8b11426a533e",
+            "name": "Demo Conference API",
+            "description": "A sample API with information related to a technical conference.  The available resources  include *Speakers*, *Sessions* and *Topics*.  A single write operation is available to provide  feedback on a session.",
+            "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+            "updatedAt": "2023-02-24T20:07:35.000Z"
+        },
+        "item": [
+            {
+                "name": "session/{id}",
+                "item": [
+                    {
+                        "name": "GetSession",
+                        "id": "2d02ebfc-1f3f-4fb1-b406-8fd5350bae07",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                                "raw": "{{baseUrl}}/session/:id",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "session",
+                                    ":id"
+                                ],
+                                "variable": [
+                                    {
+                                        "id": "688694c3-cf66-4d70-a01a-6e58241fc45d",
+                                        "key": "id",
+                                        "value": "-2302828",
+                                        "description": "(Required) Format - int32."
+                                    }
+                                ]
+                            },
+                            "description": "Retreive a representation of a single session by Id"
+                        },
+                        "response": [
+                            {
+                                "id": "db651ea0-8b5e-416f-ab88-c90f0480f4b3",
+                                "name": "OK",
+                                "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Ocp-Apim-Subscription-Key",
+                                            "value": "<API Key>"
+                                        }
+                                    ],
+                                    "url": {
+                                        "raw": "{{baseUrl}}/session/:id",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "session",
+                                            ":id"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "id",
+                                                "value": "-2302828",
+                                                "description": "(Required) Format - int32."
+                                            }
+                                        ]
+                                    }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "text",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "text/plain"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "GetSessionTopics",
+                        "id": "8e198e4f-e7bd-46d3-8d60-e29a60e7e666",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                                "raw": "{{baseUrl}}/session/:id/topics",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "session",
+                                    ":id",
+                                    "topics"
+                                ],
+                                "variable": [
+                                    {
+                                        "id": "ae317760-6baa-4c72-b310-f88bfaa900c0",
+                                        "key": "id",
+                                        "value": "-2302828",
+                                        "description": "(Required) Format - int32."
+                                    }
+                                ]
+                            },
+                            "description": "A list of topics covered by a particular session"
+                        },
+                        "response": [
+                            {
+                                "id": "56fc97f2-edc5-4f3c-9d41-31ee69243a96",
+                                "name": "OK",
+                                "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Ocp-Apim-Subscription-Key",
+                                            "value": "<API Key>"
+                                        }
+                                    ],
+                                    "url": {
+                                        "raw": "{{baseUrl}}/session/:id/topics",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "session",
+                                            ":id",
+                                            "topics"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "id",
+                                                "value": "-2302828",
+                                                "description": "(Required) Format - int32."
+                                            }
+                                        ]
+                                    }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "text",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "text/plain"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "SubmitSession",
+                        "id": "c26f2f4d-4eca-4eb9-8a95-892d9e85bf22",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "POST",
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "text/plain"
+                                }
+                            ],
+                            "body": {
+                                "mode": "raw",
+                                "raw": "in officia veniam eiusmod voluptate"
+                            },
+                            "url": {
+                                "raw": "{{baseUrl}}/session/:id/feedback",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "session",
+                                    ":id",
+                                    "feedback"
+                                ],
+                                "variable": [
+                                    {
+                                        "id": "2ba54d83-38d3-438c-94d4-21a570b249d3",
+                                        "key": "id",
+                                        "value": "-2302828",
+                                        "description": "(Required) Format - int32."
+                                    }
+                                ]
+                            },
+                            "description": "Retreive a representation of a single session by Id"
+                        },
+                        "response": [
+                            {
+                                "id": "7b436058-69fc-47b8-98f9-fd4fd6bc9532",
+                                "name": "OK",
+                                "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                        {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Ocp-Apim-Subscription-Key",
+                                            "value": "<API Key>"
+                                        }
+                                    ],
+                                    "body": {
+                                        "mode": "raw",
+                                        "raw": "in officia veniam eiusmod voluptate"
+                                    },
+                                    "url": {
+                                        "raw": "{{baseUrl}}/session/:id/feedback",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "session",
+                                            ":id",
+                                            "feedback"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "id",
+                                                "value": "-2302828",
+                                                "description": "(Required) Format - int32."
+                                            }
+                                        ]
+                                    }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "text",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "text/plain"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": ""
+                            }
+                        ]
+                    }
+                ],
+                "id": "d8f9cd8f-b0ad-443b-bea8-05f58d64f48e"
+            },
+            {
+                "name": "speaker/{id}",
+                "item": [
+                    {
+                        "name": "GetSpeaker",
+                        "id": "37f5c05f-daf0-4282-9cc8-9ec96e417b26",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                                "raw": "{{baseUrl}}/speaker/:id",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "speaker",
+                                    ":id"
+                                ],
+                                "variable": [
+                                    {
+                                        "id": "191329d0-904c-4d4d-b7c7-927932222db8",
+                                        "key": "id",
+                                        "value": "-2302828",
+                                        "description": "(Required) Format - int32."
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [
+                            {
+                                "id": "10f00b6b-0013-48e9-8561-6d0be6d9663e",
+                                "name": "OK",
+                                "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Ocp-Apim-Subscription-Key",
+                                            "value": "<API Key>"
+                                        }
+                                    ],
+                                    "url": {
+                                        "raw": "{{baseUrl}}/speaker/:id",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "speaker",
+                                            ":id"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "id",
+                                                "value": "-2302828",
+                                                "description": "(Required) Format - int32."
+                                            }
+                                        ]
+                                    }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "text",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "text/plain"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "GetSpeakerSessions",
+                        "id": "7d6690de-0f76-49a3-b7cb-f351c9cf5d02",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                                "raw": "{{baseUrl}}/speaker/:id/sessions",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "speaker",
+                                    ":id",
+                                    "sessions"
+                                ],
+                                "variable": [
+                                    {
+                                        "id": "0ab85e98-11ae-413a-a0e7-47ad5d7dbb06",
+                                        "key": "id",
+                                        "value": "-2302828",
+                                        "description": "(Required) Format - int32."
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [
+                            {
+                                "id": "92c608bf-180f-4ba8-9f38-c32c1f28a787",
+                                "name": "OK",
+                                "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Ocp-Apim-Subscription-Key",
+                                            "value": "<API Key>"
+                                        }
+                                    ],
+                                    "url": {
+                                        "raw": "{{baseUrl}}/speaker/:id/sessions",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "speaker",
+                                            ":id",
+                                            "sessions"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "id",
+                                                "value": "-2302828",
+                                                "description": "(Required) Format - int32."
+                                            }
+                                        ]
+                                    }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "text",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "text/plain"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "GetSpeakerTopics",
+                        "id": "0f6851dd-d815-4b2b-98d0-747754869e18",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                                "raw": "{{baseUrl}}/speaker/:id/topics",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "speaker",
+                                    ":id",
+                                    "topics"
+                                ],
+                                "variable": [
+                                    {
+                                        "id": "a35a391a-373f-4fbe-bff1-1e55487b66f0",
+                                        "key": "id",
+                                        "value": "-2302828",
+                                        "description": "(Required) Format - int32."
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [
+                            {
+                                "id": "11b9cf00-fa5f-45d1-a1e1-c887f0f43d85",
+                                "name": "OK",
+                                "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Ocp-Apim-Subscription-Key",
+                                            "value": "<API Key>"
+                                        }
+                                    ],
+                                    "url": {
+                                        "raw": "{{baseUrl}}/speaker/:id/topics",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "speaker",
+                                            ":id",
+                                            "topics"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "id",
+                                                "value": "-2302828",
+                                                "description": "(Required) Format - int32."
+                                            }
+                                        ]
+                                    }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "text",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "text/plain"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": ""
+                            }
+                        ]
+                    }
+                ],
+                "id": "a1123fe8-d818-4d13-9bf2-e22434ec3fe6"
+            },
+            {
+                "name": "topic/{id}",
+                "item": [
+                    {
+                        "name": "GetTopic",
+                        "id": "a42f1eab-e735-4b98-b109-7c2806d0286e",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                                "raw": "{{baseUrl}}/topic/:id",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "topic",
+                                    ":id"
+                                ],
+                                "variable": [
+                                    {
+                                        "id": "68e49fdb-dd78-414b-ab61-67ebc590f4d0",
+                                        "key": "id",
+                                        "value": "-2302828",
+                                        "description": "(Required) Format - int32."
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [
+                            {
+                                "id": "778d21cd-2d23-4079-a4dc-8111d0ec4f56",
+                                "name": "OK",
+                                "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Ocp-Apim-Subscription-Key",
+                                            "value": "<API Key>"
+                                        }
+                                    ],
+                                    "url": {
+                                        "raw": "{{baseUrl}}/topic/:id",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "topic",
+                                            ":id"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "id",
+                                                "value": "-2302828",
+                                                "description": "(Required) Format - int32."
+                                            }
+                                        ]
+                                    }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "text",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "text/plain"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "GetTopicSpeakers",
+                        "id": "61a13d59-0497-4f3e-9de1-1138d6c5c781",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                                "raw": "{{baseUrl}}/topic/:id/speakers",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "topic",
+                                    ":id",
+                                    "speakers"
+                                ],
+                                "variable": [
+                                    {
+                                        "id": "62bb797d-4525-4908-80e1-76e3114ba35a",
+                                        "key": "id",
+                                        "value": "-2302828",
+                                        "description": "(Required) Format - int32."
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [
+                            {
+                                "id": "9d49972b-e5d5-4990-8178-8dd48248a53c",
+                                "name": "OK",
+                                "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Ocp-Apim-Subscription-Key",
+                                            "value": "<API Key>"
+                                        }
+                                    ],
+                                    "url": {
+                                        "raw": "{{baseUrl}}/topic/:id/speakers",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "topic",
+                                            ":id",
+                                            "speakers"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "id",
+                                                "value": "-2302828",
+                                                "description": "(Required) Format - int32."
+                                            }
+                                        ]
+                                    }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "text",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "text/plain"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "GetTopicSessions",
+                        "id": "67958a9c-d712-41f2-b74c-52b6eac83a71",
+                        "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                        },
+                        "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                                "raw": "{{baseUrl}}/topic/:id/sessions",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "topic",
+                                    ":id",
+                                    "sessions"
+                                ],
+                                "variable": [
+                                    {
+                                        "id": "a7147ca2-401c-47bb-870c-adc6e32d16fa",
+                                        "key": "id",
+                                        "value": "-2302828",
+                                        "description": "(Required) Format - int32."
+                                    }
+                                ]
+                            }
+                        },
+                        "response": [
+                            {
+                                "id": "a5ab3230-e59d-4f72-8da8-36886873b87f",
+                                "name": "OK",
+                                "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                        {
+                                            "description": "Added as a part of security scheme: apikey",
+                                            "key": "Ocp-Apim-Subscription-Key",
+                                            "value": "<API Key>"
+                                        }
+                                    ],
+                                    "url": {
+                                        "raw": "{{baseUrl}}/topic/:id/sessions",
+                                        "host": [
+                                            "{{baseUrl}}"
+                                        ],
+                                        "path": [
+                                            "topic",
+                                            ":id",
+                                            "sessions"
+                                        ],
+                                        "variable": [
+                                            {
+                                                "key": "id",
+                                                "value": "-2302828",
+                                                "description": "(Required) Format - int32."
+                                            }
+                                        ]
+                                    }
+                                },
+                                "status": "OK",
+                                "code": 200,
+                                "_postman_previewlanguage": "text",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "text/plain"
+                                    }
+                                ],
+                                "cookie": [],
+                                "responseTime": null,
+                                "body": ""
+                            }
+                        ]
+                    }
+                ],
+                "id": "9b043e4f-7a56-4404-a85b-ab0d9df86bf2"
+            },
+            {
+                "name": "GetSessions",
+                "event": [
+                    {
+                        "listen": "prerequest",
+                        "script": {
+                            "id": "76a9b317-03a6-44b3-a8c3-01589301836c",
+                            "exec": [
+                                "const postRequest = {\r",
+                                "  url: pm.collectionVariables.get(\"token_endpoint\"),\r",
+                                "  method: \"post\",\r",
+                                "  header: {\r",
+                                "    \"Content-Type\": \"application/x-www-form-urlencoded\",\r",
+                                "  },\r",
+                                "  body: {\r",
+                                "    mode: \"urlencoded\",\r",
+                                "    urlencoded: [\r",
+                                "      {\r",
+                                "        key: \"grant_type\",\r",
+                                "        value: \"client_credentials\",\r",
+                                "        disabled: false,\r",
+                                "      },\r",
+                                "      {\r",
+                                "        key: \"resource\",\r",
+                                "        value: pm.collectionVariables.get(\"resource\"),\r",
+                                "        disabled: false,\r",
+                                "      },\r",
+                                "      {\r",
+                                "        key: \"client_id\",\r",
+                                "        value: pm.collectionVariables.get(\"client_id\"),\r",
+                                "        disabled: false,\r",
+                                "      },\r",
+                                "      {\r",
+                                "        key: \"client_secret\",\r",
+                                "        value: pm.collectionVariables.get(\"client_secret\"),\r",
+                                "        disabled: false,\r",
+                                "      },\r",
+                                "    ],\r",
+                                "  },\r",
+                                "};\r",
+                                "\r",
+                                "pm.sendRequest(postRequest, (error, response) => {\r",
+                                "  if (error) {\r",
+                                "    console.log(error);\r",
+                                "  } else {\r",
+                                "    pm.collectionVariables.set(\"access_token\", response.json().access_token);\r",
+                                "  }\r",
+                                "});"
+                            ],
+                            "type": "text/javascript"
+                        }
+                    }
+                ],
+                "id": "9afe4d6f-1df5-47f0-aa04-020e8d1a3051",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Authorization",
+                            "value": "Bearer {{access_token}}",
+                            "type": "text"
+                        }
+                    ],
+                    "url": {
+                        "raw": "{{baseUrl}}/sessions?speakername=in officia veniam eiusmod voluptate&dayno=-2302828&keyword=in officia veniam eiusmod voluptate",
+                        "host": [
+                            "{{baseUrl}}"
+                        ],
+                        "path": [
+                            "sessions"
+                        ],
+                        "query": [
+                            {
+                                "key": "speakername",
+                                "value": "in officia veniam eiusmod voluptate"
+                            },
+                            {
+                                "key": "dayno",
+                                "value": "-2302828",
+                                "description": "Format - int32."
+                            },
+                            {
+                                "key": "keyword",
+                                "value": "in officia veniam eiusmod voluptate"
+                            }
+                        ]
+                    },
+                    "description": "A list of sessions.  Optional parameters work as filters to reduce the listed sessions."
+                },
+                "response": [
+                    {
+                        "id": "6baeb9e1-eeb9-4c85-90e1-8763feaefbf9",
+                        "name": "OK",
+                        "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{baseUrl}}/sessions?speakername=in officia veniam eiusmod voluptate&dayno=-2302828&keyword=in officia veniam eiusmod voluptate",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "sessions"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "speakername",
+                                        "value": "in officia veniam eiusmod voluptate"
+                                    },
+                                    {
+                                        "key": "dayno",
+                                        "value": "-2302828"
+                                    },
+                                    {
+                                        "key": "keyword",
+                                        "value": "in officia veniam eiusmod voluptate"
+                                    }
+                                ]
+                            }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "text",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "text/plain"
+                            }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": ""
+                    }
+                ]
+            },
+            {
+                "name": "GetSpeakers",
+                "id": "9eae7557-e586-4357-9203-8e17a310addb",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                        "raw": "{{baseUrl}}/speakers?dayno=-2302828&speakername=in officia veniam eiusmod voluptate",
+                        "host": [
+                            "{{baseUrl}}"
+                        ],
+                        "path": [
+                            "speakers"
+                        ],
+                        "query": [
+                            {
+                                "key": "dayno",
+                                "value": "-2302828",
+                                "description": "Format - int32."
+                            },
+                            {
+                                "key": "speakername",
+                                "value": "in officia veniam eiusmod voluptate"
+                            }
+                        ]
+                    }
+                },
+                "response": [
+                    {
+                        "id": "e0d70336-7f7f-4840-b605-85e6d89c34fc",
+                        "name": "OK",
+                        "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{baseUrl}}/speakers?dayno=-2302828&speakername=in officia veniam eiusmod voluptate",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "speakers"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "dayno",
+                                        "value": "-2302828"
+                                    },
+                                    {
+                                        "key": "speakername",
+                                        "value": "in officia veniam eiusmod voluptate"
+                                    }
+                                ]
+                            }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "text",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "text/plain"
+                            }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": ""
+                    }
+                ]
+            },
+            {
+                "name": "GetTopics",
+                "id": "62787a03-6e5a-400b-ba03-ea36ff2fcdf5",
+                "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                },
+                "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                        "raw": "{{baseUrl}}/topics?dayno=-2302828",
+                        "host": [
+                            "{{baseUrl}}"
+                        ],
+                        "path": [
+                            "topics"
+                        ],
+                        "query": [
+                            {
+                                "key": "dayno",
+                                "value": "-2302828",
+                                "description": "Format - int32."
+                            }
+                        ]
+                    }
+                },
+                "response": [
+                    {
+                        "id": "de9d75a5-3c1a-4e81-a5e4-745c5fc7b019",
+                        "name": "OK",
+                        "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                                {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "Ocp-Apim-Subscription-Key",
+                                    "value": "<API Key>"
+                                }
+                            ],
+                            "url": {
+                                "raw": "{{baseUrl}}/topics?dayno=-2302828",
+                                "host": [
+                                    "{{baseUrl}}"
+                                ],
+                                "path": [
+                                    "topics"
+                                ],
+                                "query": [
+                                    {
+                                        "key": "dayno",
+                                        "value": "-2302828"
+                                    }
+                                ]
+                            }
+                        },
+                        "status": "OK",
+                        "code": 200,
+                        "_postman_previewlanguage": "text",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "text/plain"
+                            }
+                        ],
+                        "cookie": [],
+                        "responseTime": null,
+                        "body": ""
+                    }
+                ]
+            }
+        ],
+        "auth": {
+            "type": "apikey",
+            "apikey": [
+                {
+                    "key": "key",
+                    "value": "Ocp-Apim-Subscription-Key",
+                    "type": "string"
+                },
+                {
+                    "key": "value",
+                    "value": "{{apiKey}}",
+                    "type": "string"
+                },
+                {
+                    "key": "in",
+                    "value": "header",
+                    "type": "string"
+                }
+            ]
+        },
+        "event": [
+            {
+                "listen": "prerequest",
+                "script": {
+                    "id": "cf454a9b-9397-4318-b115-cd37a03d5a3e",
+                    "type": "text/javascript",
+                    "exec": [
+                        ""
+                    ]
+                }
+            },
+            {
+                "listen": "test",
+                "script": {
+                    "id": "d80d45ba-c57a-4f6b-ac7c-97671ed91ee8",
+                    "type": "text/javascript",
+                    "exec": [
+                        "pm.test(\"Status code is 200\", function () {",
+                        "    pm.response.to.have.status(200);",
+                        "});"
+                    ]
+                }
+            }
+        ],
+        "variable": [
+            {
+                "id": "27b9b7ee-7429-4e07-921b-96ab9e84a70f",
+                "key": "baseUrl",
+                "value": "##baseUrl##",
+                "type": "string"
+            },
+            {
+                "id": "2a58fc38-8374-4235-8cdb-3f7f0cd42bd4",
+                "key": "apiKey",
+                "value": "##apiKey##",
+                "type": "string"
+            },
+            {
+                "id": "6be5dbf8-da52-496f-8ecc-dfb2c2f168b4",
+                "key": "token_endpoint",
+                "value": "##token_endpoint##",
+                "type": "string"
+            },
+            {
+                "id": "05630be6-3319-4f0f-8a88-eefb4147239c",
+                "key": "resource",
+                "value": "##resource##",
+                "type": "string"
+            },
+            {
+                "id": "227038cd-1989-4ca1-a900-dfa9136b7a6a",
+                "key": "client_id",
+                "value": "##client_id##",
+                "type": "string"
+            },
+            {
+                "id": "b8b04bac-0a8d-4104-a550-f2b0114a2d39",
+                "key": "client_secret",
+                "value": "##client_secret##",
+                "type": "string"
+            },
+            {
+                "id": "9b112b3f-dbb3-4cbe-ba9f-1299fe158a46",
+                "key": "access_token",
+                "value": "",
+                "type": "string"
+            }
+        ]
+    }
+}
