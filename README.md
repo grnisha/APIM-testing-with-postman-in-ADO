@@ -19,6 +19,8 @@ Tests configured for this sample is a simple one to check if status is 200.
 step 3 - Export the postman collection and add it to the repo
 
 step 4 - Remove all sensitive information from the postman collection , for example api-key, access-token etc and add these to a variable group. This sample uses a variable group 'DemoConfAPIGroup'
+
+
 <img width="293" alt="image" src="https://user-images.githubusercontent.com/11030157/221603226-36824da0-3bed-4b51-8296-28273260b639.png">
 
 step 5 - Set up pipeline.
