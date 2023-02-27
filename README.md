@@ -12,7 +12,7 @@ Configure variables -->
 
 <img width="443" alt="image" src="https://user-images.githubusercontent.com/11030157/221602459-e8089857-b3d3-42d0-b858-bfbc9f1bc370.png">
 
-Tests configured for this sample is a simple one to check if status is 200.
+Tests configured in this example is checking if api response status is 200.
  
 <img width="537" alt="image" src="https://user-images.githubusercontent.com/11030157/221600688-280eaeb4-fc5f-4970-833f-584305259cef.png">
 
