@@ -1,7 +1,8 @@
 # APIM tesing - configure postman / newman API tests in Azure DevOps 
 
 Step 1 - Export API From APIM to Postman
-       <img width="667" alt="image" src="https://user-images.githubusercontent.com/11030157/221599631-d7a021a3-7752-454f-89b4-47c86ee2f407.png">
+
+<img width="667" alt="image" src="https://user-images.githubusercontent.com/11030157/221599631-d7a021a3-7752-454f-89b4-47c86ee2f407.png">
 
 Step 2 - Configure any pre-request steps, variables & tests in postman. In this example, GetSessions endpoint uses a pre-request script to retrive jwt-token.
 
