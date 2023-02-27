@@ -2,6 +2,7 @@
 
 Step 1 - Export API From APIM to Postman
        <img width="667" alt="image" src="https://user-images.githubusercontent.com/11030157/221599631-d7a021a3-7752-454f-89b4-47c86ee2f407.png">
+
 Step 2 - Configure any pre-request steps, variables & tests in postman. In this example, GetSessions endpoint uses a pre-request script to retrive jwt-token.
 
 <img width="406" alt="image" src="https://user-images.githubusercontent.com/11030157/221600903-db891c2c-66fa-459b-b367-3cac072dfe0d.png">
