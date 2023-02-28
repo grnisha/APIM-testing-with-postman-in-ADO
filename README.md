@@ -2,7 +2,7 @@
 
 This example is exporting an already exixting api from Azure APIM into postman and configuring Postman API tests in Azure DevOps. For this example I am using some demo conference API, which is configured in my APIM instance. 
 
-** Steps **
+**Steps**
 
 Export the api from APIM and select postman. You can choose Postman for Web or Windows. 
 ![image](https://user-images.githubusercontent.com/11030157/221816088-01e9c80c-d76b-480f-bc37-5dcf34ec4b08.png)
