@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: RunDemoConfAPITests-$(Date:yyyyMMdd).$(Rev:r)
 
 # Controls when the workflow will run
 on:
@@ -21,17 +21,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Print name
-        run: echo "Hello $NAME. $BUILD. My BASEURL is ${{secrets.BASEURL}}"
-        env:
-          BUILD: 'We are currently running the Build job'
+      # - name: Test Print
+      #   run: echo ${{ secrets.BASEURL }}
       
-      - name: Test Print
-        run: echo ${{ secrets.BASEURL }}
-      - run: 'echo "$BASEURL" | base64'
-        shell: bash
-        env:
-          BASEURL: ${{ secrets.BASEURL }}
+      - name: npm install newman
+        run: npm install newman -g
       
       - name: string-tokeniser
         uses: scott-david-walker/tokeniser@v1.0.5
@@ -48,30 +42,35 @@ jobs:
           client_id: ${{ secrets.CLIENT_ID }} 
           client_secret: ${{ secrets.CLIENT_SECRET }}
 
-#       - name: Replace Tokens
-#         uses: cschleiden/replace-tokens@v1
-#         with:
-#           tokenPrefix: '##'
-#           tokenSuffix: '##'
-#           files: '["**/*.json"]'
-#         env:
-#           baseUrl: ${{ secrets.BASEURL }}
-#           apiKey: ${{ secrets.APIKEY }}
-#           token_endpoint: ${{ secrets.TOKEN_ENDPOINT }} 
-#           resource: ${{ secrets.RESOURCE }} 
-#           client_id: ${{ secrets.CLIENT_ID }} 
-#           client_secret: ${{ secrets.CLIENT_SECRET }} 
-          
-      - name: Get DemoConfApi
-        id: vars
-        run: echo ::set-output name=def::$(cat postmancollection/DemoConfApi.json)
-      - name: Print DemoConfApi
-        run: echo ${{ steps.vars.outputs.def }}
-
       - name: Run Tests
-        uses: matt-ball/newman-action@master
-        with:
-          collection: postmancollection/DemoConfApi.json
-          reporters: '["cli", "junit", "htmlextra"]'
-          reporter: "{ \"junit\": { \"export\": \"/tmp/newman/JUnitReportt.xml\" }, \"htmlextra\": { \"export\": \"/tmp/newman/JUnitReport.html\" }}"
-          bail: true
+        run: newman run ${{ env.Build.Repository.LocalPath }}/postmancollection/DemoConfApi.json -x -r junit --reporter-junit-export JUnitReport.xml
+
+      # - name: Replace Tokens
+      #   uses: cschleiden/replace-tokens@v1
+      #   with:
+      #     tokenPrefix: '##'
+      #     tokenSuffix: '##'
+      #     files: '["**/*.json"]'
+      #   env:
+      #     baseUrl: ${{ secrets.BASEURL }}
+      #     apiKey: ${{ secrets.APIKEY }}
+      #     token_endpoint: ${{ secrets.TOKEN_ENDPOINT }} 
+      #     resource: ${{ secrets.RESOURCE }} 
+      #     client_id: ${{ secrets.CLIENT_ID }} 
+      #     client_secret: ${{ secrets.CLIENT_SECRET }} 
+          
+      # - name: Get DemoConfApi
+      #   id: vars
+      #   run: echo ::set-output name=def::$(cat postmancollection/DemoConfApi.json)
+      # - name: Print DemoConfApi
+      #   run: echo ${{ steps.vars.outputs.def }}
+
+      # - name: Run Tests
+      #   uses: matt-ball/newman-action@master
+      #   with:
+      #     collection: postmancollection/DemoConfApi.json
+      #     reporters: '["cli", "junit", "htmlextra"]'
+      #     reporter: "{ \"junit\": { \"export\": \"/tmp/newman/JUnitReportt.xml\" }, \"htmlextra\": { \"export\": \"/tmp/newman/JUnitReport.html\" }}"
+      #     bail: true
+
+      
