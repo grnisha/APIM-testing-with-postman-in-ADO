@@ -43,7 +43,7 @@ jobs:
           client_secret: ${{ secrets.CLIENT_SECRET }}
 
       - name: Run Tests
-        run: newman run postmancollection/DemoConfApi.json -x -r junit --reporter-junit-export JUnitReport.xml
+        run: newman run postmancollection/DemoConfApi.json  -r junit --reporter-junit-export JUnitReport.xml
 
       # - name: Replace Tokens
       #   uses: cschleiden/replace-tokens@v1
