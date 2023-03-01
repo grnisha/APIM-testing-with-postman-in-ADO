@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: RunDemoConfAPITests-$(Date:yyyyMMdd).$(Rev:r)
+name: RunDemoConfAPITests-${{ env.Date:yyyyMMdd }}.${{ env.Rev:r }}
 
 # Controls when the workflow will run
 on:
@@ -43,7 +43,7 @@ jobs:
           client_secret: ${{ secrets.CLIENT_SECRET }}
 
       - name: Run Tests
-        run: newman run ${{ env.Build.Repository.LocalPath }}/postmancollection/DemoConfApi.json -x -r junit --reporter-junit-export JUnitReport.xml
+        run: newman run postmancollection/DemoConfApi.json -x -r junit --reporter-junit-export JUnitReport.xml
 
       # - name: Replace Tokens
       #   uses: cschleiden/replace-tokens@v1
