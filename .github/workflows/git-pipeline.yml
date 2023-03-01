@@ -21,9 +21,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Test Print
-        run: echo ${{ env.BASEURL }}
-      - name: test file
-        run: echo 'cat postmancollection/DemoConfApi.json'
+        run: echo ${{ secrets.BASEURL }}
+      - name: Get output
+        id: varsq
+        run: echo ::set-output name=version::$(cat postmancollection/DemoConfApi.json)
+      - name: Test output
+        run: echo ${{ steps.varsq.outputs.version }}
+        
       - name: Replace Tokens
         uses: cschleiden/replace-tokens@v1
         with:
@@ -31,16 +35,19 @@ jobs:
           tokenSuffix: '##'
           files: '["**/*.json"]'
         env:
-          baseUrl: ${{ env.BASEURL }}
-          apiKey: ${{ env.APIKEY }}
-          token_endpoint: ${{ env.TOKEN_ENDPOINT }} 
-          resource: ${{ env.RESOURCE }} 
-          client_id: ${{ env.CLIENT_ID }} 
-          client_secret: ${{ env.CLIENT_SECRET }} 
+          baseUrl: ${{ secrets.BASEURL }}
+          apiKey: ${{ secrets.APIKEY }}
+          token_endpoint: ${{ secrets.TOKEN_ENDPOINT }} 
+          resource: ${{ secrets.RESOURCE }} 
+          client_id: ${{ secrets.CLIENT_ID }} 
+          client_secret: ${{ secrets.CLIENT_SECRET }} 
           
-      
-      - name: test file1
-        run: echo 'cat postmancollection/DemoConfApi.json'
+      - name: Get output
+        id: vars
+        run: echo ::set-output name=version::$(cat postmancollection/DemoConfApi.json)
+      - name: Test output
+        run: echo ${{ steps.vars.outputs.version }}
+
       - name: Run Tests
         uses: matt-ball/newman-action@master
         with:
