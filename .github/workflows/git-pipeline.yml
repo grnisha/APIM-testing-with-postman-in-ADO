@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: RunDemoConfAPITests-${{ env.Date:yyyyMMdd }}.${{ env.Rev:r }}
+name: RunDemoConfAPITests
 
 # Controls when the workflow will run
 on:
