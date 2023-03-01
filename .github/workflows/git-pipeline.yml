@@ -20,19 +20,29 @@ jobs:
       ENVIRONMENT: Dev
     steps:
       - uses: actions/checkout@v3
-      - uses: cschleiden/replace-tokens@v1
+      - name: Test Print
+        run: echo ${{ env.BASEURL }}
+      - name: test file
+        run: echo 'cat postmancollection/DemoConfApi.json'
+      - name: Replace Tokens
+        uses: cschleiden/replace-tokens@v1
         with:
           tokenPrefix: '##'
           tokenSuffix: '##'
-          files: '["**/DemoConfApi.json"]'
+          files: '["**/*.json"]'
         env:
           baseUrl: ${{ env.BASEURL }}
-          apiKey: ${{ env.BASEURL }}
+          apiKey: ${{ env.APIKEY }}
           token_endpoint: ${{ env.TOKEN_ENDPOINT }} 
           resource: ${{ env.RESOURCE }} 
           client_id: ${{ env.CLIENT_ID }} 
           client_secret: ${{ env.CLIENT_SECRET }} 
-      - uses: matt-ball/newman-action@master
+          
+      
+      - name: test file1
+        run: echo 'cat postmancollection/DemoConfApi.json'
+      - name: Run Tests
+        uses: matt-ball/newman-action@master
         with:
           collection: postmancollection/DemoConfApi.json
           reporters: '["cli", "junit", "htmlextra"]'
