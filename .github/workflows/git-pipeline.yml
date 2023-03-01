@@ -16,10 +16,14 @@ on:
 jobs:
   dev:
     runs-on: ubuntu-latest
-    env:
-      ENVIRONMENT: Dev
+    
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Print name
+        run: echo "Hello $NAME. $BUILD. My BASEURL is ${{secrets.BASEURL}}"
+        env:
+          BUILD: 'We are currently running the Build job'
       
       - name: Test Print
         run: echo ${{ secrets.BASEURL }}
