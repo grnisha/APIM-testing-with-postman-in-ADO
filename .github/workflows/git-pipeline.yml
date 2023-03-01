@@ -20,33 +20,48 @@ jobs:
       ENVIRONMENT: Dev
     steps:
       - uses: actions/checkout@v3
+      
       - name: Test Print
         run: echo ${{ secrets.BASEURL }}
-      - name: Get output
-        id: varsq
-        run: echo ::set-output name=version::$(cat postmancollection/DemoConfApi.json)
-      - name: Test output
-        run: echo ${{ steps.varsq.outputs.version }}
-        
-      - name: Replace Tokens
-        uses: cschleiden/replace-tokens@v1
+      - run: 'echo "$BASEURL" | base64'
+        shell: bash
+        env:
+          BASEURL: ${{ secrets.BASEURL }}
+      
+      - name: string-tokeniser
+        uses: scott-david-walker/tokeniser@v1.0.5
         with:
-          tokenPrefix: '##'
-          tokenSuffix: '##'
-          files: '["**/*.json"]'
+          files: "**/*.json"
+          prefix: '##'
+          suffix: '##'
+          fail-if-no-provided-replacement: true
         env:
           baseUrl: ${{ secrets.BASEURL }}
           apiKey: ${{ secrets.APIKEY }}
           token_endpoint: ${{ secrets.TOKEN_ENDPOINT }} 
           resource: ${{ secrets.RESOURCE }} 
           client_id: ${{ secrets.CLIENT_ID }} 
-          client_secret: ${{ secrets.CLIENT_SECRET }} 
+          client_secret: ${{ secrets.CLIENT_SECRET }}
+
+#       - name: Replace Tokens
+#         uses: cschleiden/replace-tokens@v1
+#         with:
+#           tokenPrefix: '##'
+#           tokenSuffix: '##'
+#           files: '["**/*.json"]'
+#         env:
+#           baseUrl: ${{ secrets.BASEURL }}
+#           apiKey: ${{ secrets.APIKEY }}
+#           token_endpoint: ${{ secrets.TOKEN_ENDPOINT }} 
+#           resource: ${{ secrets.RESOURCE }} 
+#           client_id: ${{ secrets.CLIENT_ID }} 
+#           client_secret: ${{ secrets.CLIENT_SECRET }} 
           
-      - name: Get output
+      - name: Get DemoConfApi
         id: vars
-        run: echo ::set-output name=version::$(cat postmancollection/DemoConfApi.json)
-      - name: Test output
-        run: echo ${{ steps.vars.outputs.version }}
+        run: echo ::set-output name=def::$(cat postmancollection/DemoConfApi.json)
+      - name: Print DemoConfApi
+        run: echo ${{ steps.vars.outputs.def }}
 
       - name: Run Tests
         uses: matt-ball/newman-action@master
