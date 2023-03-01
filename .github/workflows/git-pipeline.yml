@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Print name
-        run: echo "Hello $NAME. $BUILD. My BASEURL is ${{secrets.BASEURL}}"
+        run: echo "Hello $NAME. $BUILD. My BASEURL is ${{DEV.secrets.BASEURL}}"
         env:
           BUILD: 'We are currently running the Build job'
       
