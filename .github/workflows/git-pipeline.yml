@@ -45,7 +45,11 @@ jobs:
           client_secret: ${{ secrets.CLIENT_SECRET }}
 
       - name: Run Tests
-        run: newman run postmancollection/DemoConfApi.json -x -r junit --reporter-junit-export JUnitReport.xml
+        id: run_tests
+        run: newman run postmancollection/DemoConfApi.json -x -r junit --reporter-junit-export JUnitReport.xml  
+
+      - name: Test Results
+        run: echo ${{join(steps.run_tests.outputs.*, '\n')}}
 
       # - name: Replace Tokens
       #   uses: cschleiden/replace-tokens@v1
@@ -67,12 +71,12 @@ jobs:
       # - name: Print DemoConfApi
       #   run: echo ${{ steps.vars.outputs.def }}
 
-      - name: Run Tests
-        uses: matt-ball/newman-action@master
-        with:
-          collection: postmancollection/DemoConfApi.json
-          reporters: '["cli", "junit", "htmlextra"]'
-          reporter: "{ \"junit\": { \"export\": \"/tmp/newman/JUnitReportt.xml\" }, \"htmlextra\": { \"export\": \"/tmp/newman/JUnitReport.html\" }}"
-          bail: true
+      # - name: Run Tests
+      #   uses: matt-ball/newman-action@master
+      #   with:
+      #     collection: postmancollection/DemoConfApi.json
+      #     reporters: '["cli", "junit", "htmlextra"]'
+      #     reporter: "{ \"junit\": { \"export\": \"/tmp/newman/JUnitReportt.xml\" }, \"htmlextra\": { \"export\": \"/tmp/newman/JUnitReport.html\" }}"
+      #     bail: true
 
       
