@@ -25,7 +25,7 @@ There are several variables configured in this example as shown below.
 ![image](https://user-images.githubusercontent.com/11030157/221816332-8ead5b11-f998-49b3-ad11-0e8c169edc2b.png)
 
  
-The test configured in this example is checking if the API response status is 200. Additional tests can be easily added here , e.g. – tests to check response content, reponse time etc.
+The test configured in this example is checking if the API response status is 200. Additional tests can be easily added here , e.g. – tests to check response content, response time etc.
  
  ![image](https://user-images.githubusercontent.com/11030157/221816363-c42dce0c-4106-4900-acab-4cda78b6fff2.png)
 
