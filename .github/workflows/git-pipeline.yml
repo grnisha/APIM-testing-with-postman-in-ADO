@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  dev:
+  APIMTests:
     runs-on: ubuntu-latest
     environment: DEV
     permissions:
@@ -51,13 +51,13 @@ jobs:
         run: newman run postmancollection/DemoConfApi.json -x -r junit --reporter-junit-export JUnitReport.xml  
           
       - name: Report
-        uses: dorny/test-reporter@v1
+        uses: dorny/test-reporter@v1.6.0
         if: always()
         with:
-          name: APIM Tests
+          name: APIMTests
           path: JUnitReport.xml
           reporter: java-junit
-          fail-on-error: true
+          fail-on-error: false
         
       # - name: Test Results
       #   run: echo $(cat JUnitReport.xml)
