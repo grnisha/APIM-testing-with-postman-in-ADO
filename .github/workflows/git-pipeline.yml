@@ -53,7 +53,7 @@ jobs:
           name: Run Tests           # Name of the check run which will be created
           path: JUnitReport.xml    # Path to test results
           reporter: java-junit  
-          token: ${{ secrets.APIMTests }}
+          token: ${{ secrets.APIMTestsPAT }}
           
         
       # - name: Test Results
