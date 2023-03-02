@@ -26,8 +26,6 @@ jobs:
       
       - name: npm install newman
         run: npm install newman -g
-      - name: npm install htmlextra
-        run: npm install -g newman-reporter-htmlextra
               
       - name: string-tokeniser
         uses: scott-david-walker/tokeniser@v1.0.5
@@ -55,6 +53,7 @@ jobs:
           name: Run Tests           # Name of the check run which will be created
           path: JUnitReport.xml    # Path to test results
           reporter: java-junit  
+          token: ${{ secrets.APIMTests }}
           
         
       # - name: Test Results
