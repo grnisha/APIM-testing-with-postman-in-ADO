@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  APIMTests:
+  APIMDev:
     runs-on: ubuntu-latest
     environment: DEV
     permissions:
@@ -54,7 +54,7 @@ jobs:
         uses: dorny/test-reporter@v1.6.0
         if: always()
         with:
-          name: APIMTests
+          name: Test Report
           path: JUnitReport.xml
           reporter: java-junit
           fail-on-error: false
