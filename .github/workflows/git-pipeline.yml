@@ -49,7 +49,14 @@ jobs:
         run: newman run postmancollection/DemoConfApi.json -x -r junit --reporter-junit-export JUnitReport.xml  
 
       - name: Test Results
-        run: echo ${{join(steps.run_tests.outputs.*, '\n')}}
+        run: echo $(cat JUnitReport.xml)
+        
+      - name: Test Report
+        uses: dorny/test-reporter@v1.6.0
+        if: success() || failure()    # run this step even if previous step failed
+        with:
+          name: Run Tests           # Name of the check run which will be created
+          path: JUnitReport.xml    # Path to test results  
 
       # - name: Replace Tokens
       #   uses: cschleiden/replace-tokens@v1
