@@ -45,16 +45,15 @@ jobs:
       - name: Run Tests
         id: run_tests
         run: newman run postmancollection/DemoConfApi.json -x -r junit --reporter-junit-export JUnitReport.xml  
-        
-      - name: Test Report
-        uses: dorny/test-reporter@v1.6.0
-        if: success() || failure()    # run this step even if previous step failed
-        with:
-          name: Run Tests           # Name of the check run which will be created
-          path: JUnitReport.xml    # Path to test results
-          reporter: java-junit  
-          token: ${{ secrets.APIMTestsPAT }}
           
+      - name: Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: APIM Tests
+          path: JUnitReport.xml
+          reporter: java-junit
+          fail-on-error: true
         
       # - name: Test Results
       #   run: echo $(cat JUnitReport.xml)
