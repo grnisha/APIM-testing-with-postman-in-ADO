@@ -17,6 +17,10 @@ jobs:
   dev:
     runs-on: ubuntu-latest
     environment: DEV
+    permissions:
+      id-token: write
+      contents: read
+      checks: write
     
     steps:
       - uses: actions/checkout@v3
