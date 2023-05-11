@@ -1,6 +1,6 @@
 # APIM testing - configure Postman API tests in Azure DevOps 
 
-This example is exporting an already existing API from Azure APIM into postman and configuring Postman API tests in Azure DevOps. For this example I am using demo conference API, which is configured in my APIM instance. 
+This example is exporting an already existing API from Azure APIM into postman and configuring Postman API tests in Azure DevOps. For this example I am using demo conference API, which is configured in my APIM instance. Find more details [here](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-api-management-streamline-testing-with-postman-amp-azure/ba-p/3817205).
 
 **Steps**
 
@@ -51,4 +51,6 @@ The newman run command comes with a few more parameters, which helps to publish 
 Here are the test results after running pipeline:
 
  ![image](https://user-images.githubusercontent.com/11030157/221816590-cea66442-72b4-4640-9381-c081cdf89314.png)
+ 
+
 
